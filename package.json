@@ -1,0 +1,22 @@
+{
+  "name": "js-express-api",
+  "version": "1.0.0",
+  "description": "An example node.js api using express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Apostolos-Daniel/node-js-express-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Apostolos-Daniel/node-js-express-api/issues"
+  },
+  "homepage": "https://github.com/Apostolos-Daniel/node-js-express-api#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
