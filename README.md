@@ -1,11 +1,10 @@
 # node-js-express-api
+
 An example node.js api using express
 
 https://blog.postman.com/how-to-create-a-rest-api-with-node-js-and-express/
 
 ## Adding testing
-
-
 
 ```
 npm install --save-dev jest
@@ -47,7 +46,7 @@ Extract it to a class and pass it to the `cors` function:
 app.use(cors(corsOptions));
 ```
 
-Use a command like the one below to simulate a frontend hitting your API. 
+Use a command like the one below to simulate a frontend hitting your API.
 
 ```
  curl -H "Origin: http://localhost:3001" http://localhost:3000/status -v
@@ -63,7 +62,7 @@ This will return `OK` and will always contain data (see reasoning below). If the
 > User-Agent: curl/7.88.1
 > Accept: */*
 > Origin: http://localhost:3001
-> 
+>
 < HTTP/1.1 200 OK
 < X-Powered-By: Express
 **< Access-Control-Allow-Origin: http://localhost:3001**
@@ -74,7 +73,7 @@ This will return `OK` and will always contain data (see reasoning below). If the
 < Date: Mon, 18 Sep 2023 22:42:53 GMT
 < Connection: keep-alive
 < Keep-Alive: timeout=5
-< 
+<
 * Connection #0 to host lo
 ```
 
@@ -94,7 +93,7 @@ The response you will get is:
 > User-Agent: curl/7.88.1
 > Accept: */*
 > Origin: http://disallowed.com
-> 
+>
 < HTTP/1.1 200 OK
 < X-Powered-By: Express
 < Content-Type: application/json; charset=utf-8
@@ -103,9 +102,9 @@ The response you will get is:
 < Date: Mon, 18 Sep 2023 22:46:33 GMT
 < Connection: keep-alive
 < Keep-Alive: timeout=5
-< 
+<
 * Connection #0 to host localhost left intact
-{"Amount":10}%                            
+{"Amount":10}%
 ```
 
 ### Why does curl always return a response irrespective of origin?
@@ -117,5 +116,3 @@ When a browser makes a request that would violate CORS, it's the browser that bl
 In the curl command, the -H "Origin: http://localhost:3002" part is simply setting the HTTP Origin header in the request. If your server is configured to respond differently based on this header (for example, to set the Access-Control-Allow-Origin response header), then it might do so, but curl itself doesn't care about CORS.
 
 The curl command-line tool is not a web browser and does not have the same security restrictions. It will show you the raw HTTP response regardless of the CORS headers. If you want to test CORS behavior, it's best to do so in a browser environment, or by simulating browser-like behavior in a testing framework that understands CORS.
-
-
